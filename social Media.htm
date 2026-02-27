@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere — Connect &amp; Share</title>
+    <meta name="description"
+        content="SocialSphere – a modern mini social network to share thoughts, images, and connect with others.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="social media.css">
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">◈</span>
+            <span class="brand-name">SocialSphere</span>
+        </div>
+        <div class="nav-actions">
+            <button class="nav-btn" id="notifBtn" title="Notifications">
+                <span class="notif-icon">🔔</span>
+                <span class="notif-badge" id="notifBadge">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="layout">
+
+        <!-- Left Sidebar: Profile -->
+        <aside class="sidebar">
+            <div class="profile-card glass-card">
+                <div class="avatar-ring">
+                    <div class="avatar">JK</div>
+                    <span class="status-dot"></span>
+                </div>
+                <h2 class="profile-name">Junaid Khan</h2>
+                <p class="profile-handle">@junaіdkhan</p>
+
+                <div class="privacy-toggle">
+                    <span class="privacy-label">Account Privacy</span>
+                    <button class="toggle-btn" id="privacyToggle" onclick="togglePrivacy()" aria-pressed="false">
+                        <span class="toggle-thumb"></span>
+                    </button>
+                    <span class="privacy-status" id="privacyStatus">Public</span>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-value" id="postCount">0</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">142</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">89</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Feed -->
+        <main class="feed-column">
+
+            <!-- Create Post -->
+            <div class="create-post glass-card">
+                <div class="create-post-header">
+                    <div class="avatar small">JK</div>
+                    <textarea id="postContent" placeholder="What's on your mind, Junaid?" maxlength="500"
+                        oninput="updateCharCount()" onkeydown="handlePostKey(event)"></textarea>
+                </div>
+                <div class="create-post-footer">
+                    <label class="attach-btn" for="imageUpload" title="Attach image">
+                        <span>📷</span> Photo
+                        <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
+                    </label>
+                    <img id="imagePreview" class="image-preview" src="" alt="Preview" style="display:none">
+                    <div class="post-footer-right">
+                        <span class="char-count" id="charCount">0 / 500</span>
+                        <button class="post-btn" onclick="createPost()" id="postBtn">
+                            <span>Post</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feed Items -->
+            <div id="feed">
+                <p class="empty-feed-msg" id="emptyMsg">No posts yet. Be the first to share something! ✨</p>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="social media.js"></script>
+</body>
+
+</html>
